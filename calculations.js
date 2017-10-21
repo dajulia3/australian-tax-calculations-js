@@ -1,3 +1,10 @@
+function totalAustralianTax(income){
+  return australianIncomeTax(income) + medicareLevy(income);
+}
+
+function medicareLevy(income){
+  return .02*income
+}
 function australianIncomeTax(income){
   var tax = 0;
   var taxBrackets = [
@@ -19,6 +26,12 @@ function australianIncomeTax(income){
   }
   return tax;
 }
+
+describe("medicareLevy", function(){
+  it("should be 2% of total income", function() {
+    expect(medicareLevy(100000)).toEqual(2000);
+  });
+});
 
 describe("australianIncomeTax", function(){
 
@@ -46,5 +59,15 @@ describe("australianIncomeTax", function(){
       }
     })
   })
-  
 });
+
+describe("totalAustralianTax", function(){
+  describe("defined as income tax plus medicare levy", function(){
+      it("should be 100132 for an income of 270000", function(){
+        expect(totalAustralianTax(270000)).toEqual(100132);
+      });
+  });
+
+});
+
+
