@@ -21,6 +21,7 @@ function australianIncomeTax(income){
 }
 
 describe("australianIncomeTax", function(){
+
   describe("marginal tax brackets", function(){
  var taxBracketExamples = [
    {income: 0, tax: 0},
@@ -31,6 +32,7 @@ describe("australianIncomeTax", function(){
    {income: 87001, tax: 19822.37},
    {income: 180000, tax: 54232.00},
    {income: 180001, tax: 54232.45},
+   {income: 270000, tax: 94732.00},
 ]  
    describe("it should respect all of the marginal tax brackets, according to the following examples", function(){
       for(var i=0; i<taxBracketExamples.length; i++){
@@ -46,7 +48,3 @@ describe("australianIncomeTax", function(){
   })
   
 });
-
-function forAllExamples(){
-  
-}
